@@ -1,2 +1,2 @@
 # ACC-Computer-Science
-All of the computer science projects and exercise
+All of the computer science projects and exercises
