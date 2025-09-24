@@ -6,13 +6,26 @@ score = 0
 incorrect_answers = 0
 
 for i in range(rounds):
+    first = True
+    
     print("Question number " + str(i+1))
     random_num = random.randint(1, 25)
     random_num1 = random.randint(1, 25)
     
-    correct_answer = random_num + random_num1
-    print("Your question is: ", random_num, "+", random_num1)
-    
+    operator = random.randint(1,3)
+   
+    if operator == 1:
+        correct_answer = random_num + random_num1
+        print("Your question is ", random_num, "+", random_num1)
+        
+    elif operator == 2:
+        correct_answer = random_num - random_num1
+        print("Your question is ", random_num, "-", random_num1)
+        
+    elif operator == 3:
+        correct_answer = random_num * random_num1
+        print("Your question is ", random_num, "*", random_num1)
+
     answer = -1
 
     while answer != correct_answer:
@@ -20,7 +33,11 @@ for i in range(rounds):
 
         if answer == correct_answer:
             print("Correct!")
-            score = score + 1
+            score += 1
+            if first == True:
+                print("You got a bonus point!")
+                score += 1
+            
                 
         elif answer == 0:
             print("Exiting this question...")
@@ -29,6 +46,7 @@ for i in range(rounds):
         else:
             print("Wrong! Try again: ")
             incorrect_answers += 1
+            first = False
 
 
 print("Tournament over")
